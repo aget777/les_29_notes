@@ -35,6 +35,8 @@ body{
     border-bottom: 1px solid #555555;
     padding: 20px 0;
     transition: background-color .5s ease;
+    position: relative;
+    padding-right: 40px;
 }
 
 .note:hover{
@@ -55,6 +57,14 @@ body{
 
 .note__title::first-letter{
     text-transform: uppercase;
+}
+
+.note__remove{
+    font-size: 30px;
+    position: absolute;
+    top: 12px;
+    right: 0;
+
 }
 
 .editor{
@@ -97,13 +107,27 @@ body{
     align-items: center;
     margin: 0;
     outline: none;
-    padding-left: 40px;
+    /*padding-left: 40px;*/
     position: relative;
 }
 
 .editor__title:focus{
     border-color: #fff;
 }
+
+.editor__title:empty::before{
+    content: 'Введите заголовок';
+}
+.editor__title::before{
+    content: '';
+    display: inline;
+    color: #888;
+}
+
+.editor__title:focus::before{
+    content: '';
+}
+
 
 /*
 .editor__title::before{
@@ -161,6 +185,24 @@ body{
     color: #eaeaea;
 }
 
+
+
+.editor__content:empty::before{
+    content: 'Текст заметки';
+    display: inline;
+    color: #888;
+}
+
+
+.editor__content::before{
+    content: '';
+    display: inline;
+}
+
+.editor__content:focus::before{
+    content: '';
+    display: inline;
+}
 .editor__save{
     border: 1px solid #c2c2c2;
     background: #c2c2c2;
